@@ -14,8 +14,10 @@ class Book:
         self.year = year
         self.book_genre = book_genre
 
-    def add_responce (self):
-        \
+    def add_response(self, response):
+        if type(response) != Response:
+            return False
+        self.book_responses.append(response)
 
     def __eq__(self, other):
         if type(other) != Book:
@@ -54,8 +56,11 @@ if book1 == book3:
 else:
     print('The books are not equal.')
 
-book2.book_responses.append('Tru lyalya.')
-book2.book_responses.append('Booo-booo-booo.')
+resp1 = Response('First resp.')
+resp2 = Response('Second resp - trulala.')
+
+book2.add_response(resp1)
+book3.add_response(resp2)
 
 print(book2)
 print(book3)
