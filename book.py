@@ -1,3 +1,8 @@
+# Задание 1
+# Создайте класс, описывающий книгу. Он должен содержать информацию об авторе, названии, годе издания и жанре.
+# Создайте несколько разных книг. Определите для него операции проверки на равенство и неравенство,
+# методы __repr__ и __str__.
+
 from response import Response
 
 
@@ -8,11 +13,12 @@ class Book:
     book_genre = str
     book_responses = []
 
-    def __init__(self, name, author, year, book_genre):
+    def __init__(self, name, author, year, book_genre, book_responses):
         self.name = name
         self.author = author
         self.year = year
         self.book_genre = book_genre
+        self.book_responses = book_responses
 
     def add_response(self, response):
         if type(response) != Response:
@@ -47,9 +53,9 @@ class Book:
 genre = 'Science fiction'
 asimov = 'Isaac Asimov'
 
-book1 = Book('Foundation', asimov, 1951, genre)
-book2 = Book('Foundation and Empire', asimov, 1952, genre)
-book3 = Book('Second Foundation', asimov, 1953, genre)
+book1 = Book('Foundation', asimov, 1951, genre, [])
+book2 = Book('Foundation and Empire', asimov, 1952, genre, [])
+book3 = Book('Second Foundation', asimov, 1953, genre, [])
 
 if book1 == book3:
     print('The books are equal.')
